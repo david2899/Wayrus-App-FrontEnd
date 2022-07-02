@@ -1,0 +1,50 @@
+.dashboard-container {
+    width: 100%;
+}
+
+.dashboard-sub-container {
+    margin-top: 7%;
+    border-radius: 25px;
+    @include sm {
+        margin-top: 25%;
+    }
+}
+
+.image-dashboard {
+    width: 100%;
+}
+.content-tab {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+    max-width: 450px;
+    background-color: #fff;
+    margin-top: 45px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.card {
+    height: 100% !important;
+}
+
+.card-header {
+    padding: 0 1rem 0.5rem 8px !important;
+}
+
+.title-wayrus{
+    text-align: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    -webkit-text-stroke: 1px rgb(0 157 143);
+    letter-spacing: 1.5px;
+    font-size: 2rem;
+    color: #000000;
+    text-decoration: underline;
+    font-family: "Playfair Display", serif;
+}
+
+.content-lineGraph img {
+    margin-top: 2rem;
+    width: 100%;
+}

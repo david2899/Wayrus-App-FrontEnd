@@ -1,0 +1,19 @@
+.navbar {
+    padding: 0px !important;
+    background: #0698cb   !important;
+    position: fixed !important;
+    top: 0 !important;
+    width: 100% !important;
+    @include sm {
+        height: 70px !important;
+    }
+}
+
+.navbar-collapse .show {
+    background: #0698cb   !important;
+    padding: 10px !important;
+}
+
+.image-logo {
+    height: 85px;
+}

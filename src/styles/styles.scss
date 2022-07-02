@@ -1,0 +1,12 @@
+@import 'bootstrap/scss/bootstrap.scss';
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;600;700;800;900&display=swap');
+@import './base/settings';
+@import './base/mixins';
+@import './base/base';
+
+// import modules
+@import './modules/_loading.scss';
+@import './modules/_contact.scss';
+@import './modules/_dashboard.scss';
+@import './modules/_navbar.scss';

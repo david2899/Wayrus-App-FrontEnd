@@ -1,0 +1,33 @@
+body {
+  overflow-x: hidden;
+  background-color: #f4f5f6;
+  font-family: "Inter", sans-serif;
+}
+
+a .nav-link {
+  @include sm {
+    padding: 0px ;
+  }
+  @include md {
+    padding: 0px ;
+  }
+  @include lg {
+    font-weight: bold ;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+    text-decoration: none;
+    color: #ffff !important;
+  }
+}
+
+.br-none {
+  position: relative;
+  background-color: #fff;
+  border-radius: 20px;
+  padding: 10px;
+}
+
+.navbar-light .navbar-nav .nav-link{
+  color: #000 !important;
+  font-weight: bold !important;
+}
