@@ -1,4 +1,4 @@
 
 export const initialValueWithdraw = {
-    address: ''
+    amount: 0
 }
