@@ -9,7 +9,6 @@ type Props = {
 
 export const Balance = ({ connect, balance, accountAddress, accountCurrent }: Props) => {
 
-
   return (
     <div className="br-none">
       <h4 className="title-wayrus">
@@ -37,7 +36,6 @@ export const Balance = ({ connect, balance, accountAddress, accountCurrent }: Pr
               </div>
             <div className="d-flex justify-content-between mt-4">
               <button onClick={() => console.log(false)} className="btn btn-primary">Create Purse</button>
-              <button onClick={() => console.log(false)} className="btn btn-primary">Disconnect Wallet</button>
             </div>
           </div>
           :

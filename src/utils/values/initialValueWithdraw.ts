@@ -1,4 +1,5 @@
 
 export const initialValueWithdraw = {
-    amount: 0
+    amount: 0,
+    purse_Id: ''
 }

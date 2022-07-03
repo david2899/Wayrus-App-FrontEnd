@@ -11,7 +11,7 @@ export default function Deposit({ makeDeposit }: Props) {
   const formik = useFormik({
     initialValues: initialValueWithdraw,
     validationSchema: validationWithdraw,
-    onSubmit: async ({amount}) => {
+    onSubmit: async ({ amount }) => {
       makeDeposit(amount)
     }
   });
@@ -19,9 +19,10 @@ export default function Deposit({ makeDeposit }: Props) {
 
   return (
     <form className="form-horizontal" onSubmit={formik.handleSubmit}>
-      <div className="form-group mt-4">
-        <label className="col control-label mt-4 mb-2" htmlFor="message">Amount</label>
-        <div className="col">
+      <div className="row mt-4">
+
+        <div className="col-6">
+          <label className="control-label mt-4 mb-2" htmlFor="amount">Amount</label>
           <input
             required
             type='number'
@@ -30,9 +31,20 @@ export default function Deposit({ makeDeposit }: Props) {
             id="amount"
             name="amount"
             placeholder="Please insert Amount.." />
-          <div className="col d-flex align-items-baseline justify-content-end mb-2">
-            <button type="submit" className="btn btn-primary mt-4">Submit</button>
-          </div>
+        </div>
+        <div className="col-6">
+          <label className="control-label mt-4 mb-2" htmlFor="purse_Id">purse Id</label>
+          <input
+            required
+            type='number'
+            className="form-control"
+            onChange={formik.handleChange}
+            id="purse_Id"
+            name="purse_Id"
+            placeholder="Please insert purse Id.." />
+        </div>
+        <div className="col d-flex align-items-baseline justify-content-end mb-2">
+          <button type="submit" className="btn btn-primary mt-4">Submit</button>
         </div>
       </div>
     </form>

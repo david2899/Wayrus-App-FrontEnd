@@ -6,6 +6,7 @@ import DevApps from './DevApps';
 import Deposit from './Deposit';
 import { loadStdlib } from "@reach-sh/stdlib";
 import { ALGO_WalletConnect as WalletConnect } from "@reach-sh/stdlib";
+import { Withdraw } from './Withdraw';
 
 const reach = loadStdlib("ALGO");
 reach.setWalletFallback(
@@ -87,11 +88,14 @@ const Wallet = () => {
                             accountCurrent={accountCurrent}
                         />
                     </Tab>
-                    <Tab eventKey="send" title="Deposit">
+                    <Tab eventKey="deposit" title="Deposit">
                         <Deposit makeDeposit={MakeDeposit} />
                     </Tab>
                     <Tab eventKey="devApps" title="DevApps">
                         <DevApps />
+                    </Tab>
+                    <Tab eventKey="Withdraw" title="Withdraw">
+                        <Withdraw />
                     </Tab>
                 </Tabs>
             </TabContainer>
