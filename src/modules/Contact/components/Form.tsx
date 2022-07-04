@@ -2,14 +2,28 @@ import React from 'react'
 import { useFormik } from "formik";
 import { contactValidation } from '../../../utils/validations/contactValidation';
 import { initialValueContact } from '../../../utils/values/initialValueContact';
+import { fetchToApi } from '../../../helpers/fetch';
+import Swal from 'sweetalert2'
 
 const Form = () => {
 
     const formik = useFormik({
         initialValues: initialValueContact,
         validationSchema: contactValidation,
-        onSubmit: async (formData) => {
-            console.log(formData)
+        onSubmit: async (formData, actions) => {
+            const data = await fetchToApi('api/send/email', 'POST', {subject: formData.name, 
+                message: formData.message
+            });
+            if (data) {
+                actions.resetForm()
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: 'email sent',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
         },
     });
 
@@ -25,6 +39,7 @@ const Form = () => {
                             <input
                                 id="name"
                                 name="name"
+                                value={formik.values.name}
                                 onChange={formik.handleChange}
                                 type="text"
                                 placeholder="Your name"
@@ -39,6 +54,7 @@ const Form = () => {
                             <input
                                 id="email"
                                 name="email"
+                                value={formik.values.email}
                                 onChange={formik.handleChange}
                                 type="email"
                                 placeholder="Your email"
@@ -54,6 +70,7 @@ const Form = () => {
                                 className="form-control"
                                 id="message"
                                 name="message"
+                                value={formik.values.message}
                                 onChange={formik.handleChange}
                                 placeholder="Please enter your message here..." rows={5} defaultValue={""} />
                             <span className='text-danger'>{formik.errors.message}</span>

@@ -4,15 +4,15 @@ import { validationWithdraw } from '../../../utils/validations/validationWithdra
 import { initialValueWithdraw } from '../../../utils/values/initialValueWithdraw';
 
 type Props = {
-  makeDeposit: (amount: number) => Promise<any>
+  makeDeposit: (appId: number, amount: number) => Promise<any>
 }
 export default function Deposit({ makeDeposit }: Props) {
 
   const formik = useFormik({
     initialValues: initialValueWithdraw,
     validationSchema: validationWithdraw,
-    onSubmit: async ({ amount }) => {
-      makeDeposit(amount)
+    onSubmit: async ({ appId, amount }) => {
+      makeDeposit(appId, amount)
     }
   });
 
@@ -39,8 +39,8 @@ export default function Deposit({ makeDeposit }: Props) {
             type='number'
             className="form-control"
             onChange={formik.handleChange}
-            id="purse_Id"
-            name="purse_Id"
+            id="appId"
+            name="appId"
             placeholder="Please insert purse Id.." />
         </div>
         <div className="col d-flex align-items-baseline justify-content-end mb-2">

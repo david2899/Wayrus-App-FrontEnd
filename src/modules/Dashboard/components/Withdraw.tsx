@@ -1,22 +1,17 @@
 import React from 'react'
 
-export const Withdraw = () => {
+type Props = {
+    setWithdraw: React.Dispatch<React.SetStateAction<boolean>>
+  }
+  
+export const Withdraw = ({setWithdraw}: Props) => {
 
     return (
         <form className="form-horizontal">
             <div className="form-control mt-4">
-                <div className="col">
-                    <label className="control-label mt-4 mb-2" htmlFor="amount">Insert Amount</label>
-                    <input
-                        required
-                        type='number'
-                        className="form-control"
-                        id="amount"
-                        name="amount"
-                        placeholder="Please insert Amount.." />
-                </div>
-                <div className="col d-flex align-items-baseline justify-content-end mb-2">
-                    <button type="submit" className="btn btn-primary mt-4">Submit</button>
+                
+                <div className="col d-flex align-items-baseline justify-content-center mb-2">
+                    <button onClick={() => setWithdraw(true)}className="btn btn-primary mt-4">Withdraw</button>
                 </div>
             </div>
         </form>

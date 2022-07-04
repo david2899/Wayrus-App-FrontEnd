@@ -1,26 +1,38 @@
 import React from 'react';
-import Table from 'react-bootstrap/Table';
 
-const DevApps = () => {
+type Props = {
+    listContracts: Array<any>,
+    getContracts: () => Promise<any>,
+    connectToContract: (appId: number) => Promise<any>
+}
+
+const DevApps = ({ listContracts, getContracts, connectToContract }: Props) => {
     return (
         <div>
-            <Table responsive="sm">
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th>Table heading</th>
-                        <th>Table heading</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Table cell</td>
-                        <td>Table cell</td>
+            {
+                listContracts.length > 0 ?
+                <div className="d-flex justify-content-center mt-3">
+                    <div >
                         
-                    </tr>
-                </tbody>
-            </Table>
+                            {
+                               listContracts.filter(it => it['application-transaction']['application-id'] !== 0 && it['application-transaction']['on-completion'] !== 'delete')
+                               .map((it, index) => {
+                                 return (<div key={index} className='mt-2 mb-2'>
+                                   <span style={{'marginRight': '40px'}}>{it['application-transaction']['application-id']}</span>
+                                   <button className="btn btn-primary" onClick={() => connectToContract(it['application-transaction']['application-id'])}>
+                                     connect to contract
+                                   </button>
+                                 </div>)
+                               })
+                            }
+                    </div>
+                    </div> :
+                    <div className='d-flex justify-content-center mt-4'>
+                        <button onClick={() => getContracts()} className="btn btn-primary">get Contracts</button>
+                    </div>
+
+            }
+
         </div>
     )
 }
